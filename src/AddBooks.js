@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
 import { Link } from 'react-router-dom';
+import serializeForm from 'form-serialize';
 
 class AddBooks extends Component {
+  searchDatabase = (e) => {
+    e.preventDefault();
+    const searchTerm = serializeForm(e.target, { hash:true});
+    if(this.props.onCreateContact) this.props.onCreateContact(searchTerm);
+    // BooksAPI.search(searchTerm.query,20);
+  }
   render() {
     return (
       <div className="search-books">
         <div className="search-books-bar">
             <Link to="/" className="close-search">Close</Link>
-            <div className="search-books-input-wrapper">
-            {/*
-              NOTES: The search from BooksAPI is limited to a particular set of search terms.
-              You can find these search terms here:
-              https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-
-              However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-              you don't find a specific author or title. Every search is limited by search terms.
-            */}
-            <input type="text" placeholder="Search by title or author"/>
-
-          </div>
+            <form className="searchBooks" onSubmit={this.searchDatabase}>
+              <div className="search-books-input-wrapper">
+                <input type="text" name="query" placeholder="Search by title or author"/>
+              </div>
+            </form>
         </div>
         <div className="search-books-results">
+          // ADD COMPONENT here
+          // AND PUSH THE RESULTS FROM THE API INTO THIS COMPONENT
           <ol className="books-grid"></ol>
         </div>
       </div>
