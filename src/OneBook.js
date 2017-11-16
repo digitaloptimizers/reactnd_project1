@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 
+/*
+  EXTENTION: OneBook
+  Creates ONE BOOK view with information about this book.
+
+  - image
+  - title
+  - author
+*/
+
 class OneBook extends React.Component {
   render() {
     return (
@@ -25,3 +34,5 @@ class OneBook extends React.Component {
     );
   }
 }
+
+export default OneBook
