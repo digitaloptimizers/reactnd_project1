@@ -7,22 +7,23 @@ import BookShelf from './BookShelf'; // Imports the look of a single book;
 /*
   CONSTANT: MyShelfs
   The different shelfs (or statuses) for the books.
-
+  This array can be used to add/remove extra shelfs in the future.
+*/
 const MyShelfs = [
   {
-    "id"    :   1,
+    "id"    :   "1",
     "title" :   "Currently Reading"
   },
   {
-    "id"    :   2,
+    "id"    :   "2",
     "title" :   "Want to Read"
   },
   {
-    "id"    :   3,
+    "id"    :   "3",
     "title" :   "Read"
   }
 ];
-*/
+
 
 
 const ListOfBooks = [
@@ -89,19 +90,29 @@ class BooksApp extends React.Component {
               <ol className="books-grid"></ol>
             </div>
           </div>
+
+
         ) : (
 
+
           <div className="list-books">
+          {/* Show this if the user is on the List Page */}
             <div className="list-books-title">
-              <h1>MyReads!!!!</h1>
+              <h1>MyReads</h1>
             </div>
 
+            {/*
+              Looping over the list of books in this array (List of Books)
+              based on the lists used in the too. (MyShelfs).
+              FEATURE (for the future): User-managed SHELFS in the array MyShelfs perhaps
+            */}
+            {MyShelfs.map((shelf) => (
+            <BookShelf key={shelf.id} BookShelfTitle={shelf.title} books={ListOfBooks} />
+            ))}
+            {/* End of loop */}
 
-            <BookShelf books={ListOfBooks} />
 
-
-
-
+            { /*
             <div className="list-books-content">
               <div>
                 <div className="bookshelf">
@@ -131,6 +142,8 @@ class BooksApp extends React.Component {
                     </ol>
                   </div>
                 </div>
+
+
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
@@ -237,6 +250,8 @@ class BooksApp extends React.Component {
                 </div>
               </div>
             </div>
+            */ }
+
             <div className="open-search">
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
             </div>
