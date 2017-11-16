@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 // import * as BooksAPI from './BooksAPI';
 import './App.css';
 import BookShelf from './BookShelf'; // Imports the look of a single book;
-import OneBook from './OneBook'; // Imports the look of a single book;
 
 
 /*
   CONSTANT: MyShelfs
   The different shelfs (or statuses) for the books.
-*/
+
 const MyShelfs = [
   {
     "id"    :   1,
@@ -22,7 +21,34 @@ const MyShelfs = [
     "id"    :   3,
     "title" :   "Read"
   }
-]
+];
+*/
+
+
+const ListOfBooks = [
+  {
+    "id"      :     "1",
+    "title"   :     "To Kill a Mockingbird",
+    "author"  :     "Harper Lee",
+    "cover"   :     "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api"
+  },
+  {
+    "id"      :     "2",
+    "title"   :     "Ender's Game",
+    "author"  :     "Harper Lee",
+    "cover"   :     "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api"
+  },
+  {
+    "id"      :     "3",
+    "title"   :     "Something Else",
+    "author"  :     "Harper Lee",
+    "cover"   :     "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api"
+  }
+];
+
+
+
+
 
 
 
@@ -69,7 +95,13 @@ class BooksApp extends React.Component {
             <div className="list-books-title">
               <h1>MyReads!!!!</h1>
             </div>
-            <BookShelf />
+
+
+            <BookShelf books={ListOfBooks} />
+
+
+
+
             <div className="list-books-content">
               <div>
                 <div className="bookshelf">
@@ -77,12 +109,6 @@ class BooksApp extends React.Component {
                   <div className="bookshelf-books">
                   <ol className="books-grid">
 
-                        <OneBook books={[
-                          { title: 'To Kill a Mockingbird' },
-                          { title: 'Ender\'s Game' }
-                        ]} />
-                        <OneBook />
-                        <OneBook />
 
                       <li>
                         <div className="book">

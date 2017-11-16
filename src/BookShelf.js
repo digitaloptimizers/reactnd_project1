@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import OneBook from './OneBook'; // Imports the look of a single book;
+
+
 
 
 /*
@@ -16,9 +19,10 @@ class BookShelf extends React.Component {
             <h2 className="bookshelf-title">Currently Reading</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                <li>One Book</li>
-                <li>One Book</li>
-                <li>One Book</li>
+                {this.props.books.map((book) => (
+                  <OneBook title={book.title} cover={book.cover} author={book.author} />
+                ))}
+
               </ol>
             </div>
           </div>
